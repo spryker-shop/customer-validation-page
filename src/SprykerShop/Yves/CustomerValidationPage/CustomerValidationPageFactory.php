@@ -19,9 +19,6 @@ use Symfony\Cmf\Component\Routing\ChainRouterInterface;
 
 class CustomerValidationPageFactory extends AbstractFactory
 {
-    /**
-     * @return \SprykerShop\Yves\CustomerValidationPage\Handler\LogoutInvalidatedCustomerFilterControllerEventHandlerInterface
-     */
     public function createLogoutInvalidatedCustomerFilterControllerEventHandler(): LogoutInvalidatedCustomerFilterControllerEventHandlerInterface
     {
         return new LogoutInvalidatedCustomerFilterControllerEventHandler(
@@ -32,9 +29,6 @@ class CustomerValidationPageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \SprykerShop\Yves\CustomerValidationPage\Validator\CustomerValidationPageValidatorInterface
-     */
     public function createCustomerValidationPageValidator(): CustomerValidationPageValidatorInterface
     {
         return new CustomerValidationPageValidator(
@@ -42,33 +36,21 @@ class CustomerValidationPageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \SprykerShop\Yves\CustomerValidationPage\Dependency\Client\CustomerValidationPageToCustomerStorageClientInterface
-     */
     public function getCustomerStorageClient(): CustomerValidationPageToCustomerStorageClientInterface
     {
         return $this->getProvidedDependency(CustomerValidationPageDependencyProvider::CLIENT_CUSTOMER_STORAGE);
     }
 
-    /**
-     * @return \SprykerShop\Yves\CustomerValidationPage\Dependency\Client\CustomerValidationPageToCustomerClientInterface
-     */
     public function getCustomerClient(): CustomerValidationPageToCustomerClientInterface
     {
         return $this->getProvidedDependency(CustomerValidationPageDependencyProvider::CLIENT_CUSTOMER);
     }
 
-    /**
-     * @return \SprykerShop\Yves\CustomerValidationPage\Dependency\Client\CustomerValidationPageToSessionClientInterface
-     */
     public function getSessionClient(): CustomerValidationPageToSessionClientInterface
     {
         return $this->getProvidedDependency(CustomerValidationPageDependencyProvider::CLIENT_SESSION);
     }
 
-    /**
-     * @return \Symfony\Cmf\Component\Routing\ChainRouterInterface
-     */
     public function getRouter(): ChainRouterInterface
     {
         return $this->getProvidedDependency(CustomerValidationPageDependencyProvider::SERVICE_ROUTER);

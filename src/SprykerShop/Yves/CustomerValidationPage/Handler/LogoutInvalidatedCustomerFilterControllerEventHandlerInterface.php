@@ -11,10 +11,5 @@ use Symfony\Component\HttpKernel\Event\ControllerEvent;
 
 interface LogoutInvalidatedCustomerFilterControllerEventHandlerInterface
 {
-    /**
-     * @param \Symfony\Component\HttpKernel\Event\ControllerEvent $controllerEvent
-     *
-     * @return void
-     */
     public function handle(ControllerEvent $controllerEvent): void;
 }

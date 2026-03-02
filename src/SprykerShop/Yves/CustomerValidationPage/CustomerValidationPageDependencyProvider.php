@@ -42,11 +42,6 @@ class CustomerValidationPageDependencyProvider extends AbstractBundleDependencyP
      */
     public const SERVICE_ROUTER = 'routers';
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = $this->addCustomerStorageClient($container);
@@ -57,11 +52,6 @@ class CustomerValidationPageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addCustomerStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_CUSTOMER_STORAGE, function (Container $container): CustomerValidationPageToCustomerStorageClientInterface {
@@ -73,11 +63,6 @@ class CustomerValidationPageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addCustomerClient(Container $container): Container
     {
         $container->set(static::CLIENT_CUSTOMER, function (Container $container): CustomerValidationPageToCustomerClientInterface {
@@ -89,11 +74,6 @@ class CustomerValidationPageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addSessionClient(Container $container): Container
     {
         $container->set(static::CLIENT_SESSION, function (Container $container): CustomerValidationPageToSessionClientInterface {
@@ -105,11 +85,6 @@ class CustomerValidationPageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addRouter(Container $container): Container
     {
         $container->set(static::SERVICE_ROUTER, function (ContainerInterface $container): ChainRouterInterface {

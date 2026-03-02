@@ -40,9 +40,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
      */
     protected CustomerValidationPageYvesTester $tester;
 
-    /**
-     * @return void
-     */
     public function testHandleWithoutInvalidatedCustomerData(): void
     {
         // Arrange
@@ -60,9 +57,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->assertSame($mockController, $controllerEvent->getController());
     }
 
-    /**
-     * @return void
-     */
     public function testHandleWithoutError(): void
     {
         // Arrange
@@ -82,9 +76,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->assertSame($mockController, $controllerEvent->getController());
     }
 
-    /**
-     * @return void
-     */
     public function testHandleWithAnonymizedAt(): void
     {
         // Arrange
@@ -104,9 +95,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->assertNotSame($mockController, $controllerEvent->getController());
     }
 
-    /**
-     * @return void
-     */
     public function testHandleWithPasswordUpdatedAtBeforeLogin(): void
     {
         // Arrange
@@ -129,9 +117,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->assertSame($mockController, $controllerEvent->getController());
     }
 
-    /**
-     * @return void
-     */
     public function testHandleWithPasswordUpdatedAtAfterLogin(): void
     {
         // Arrange
@@ -154,11 +139,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->assertNotSame($mockController, $controllerEvent->getController());
     }
 
-    /**
-     * @param \DateTime $dateTime
-     *
-     * @return \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag
-     */
     protected function createMetadataBagMock(DateTime $dateTime): MetadataBag
     {
         $metadataBagMock = $this->getMockBuilder(MetadataBag::class)->getMock();
@@ -169,11 +149,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         return $metadataBagMock;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag $metadataBagMock
-     *
-     * @return void
-     */
     protected function setSessionClientMock(MetadataBag $metadataBagMock): void
     {
         $sessionClientMock = $this->getMockBuilder(CustomerValidationPageToSessionClientInterface::class)->getMock();
@@ -184,11 +159,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->tester->setDependency(CustomerValidationPageDependencyProvider::CLIENT_SESSION, $sessionClientMock);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\InvalidatedCustomerCollectionTransfer $invalidatedCustomerCollectionTransfer
-     *
-     * @return void
-     */
     protected function setCustomerStorageClientMock(
         InvalidatedCustomerCollectionTransfer $invalidatedCustomerCollectionTransfer
     ): void {
@@ -200,11 +170,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->tester->setDependency(CustomerValidationPageDependencyProvider::CLIENT_CUSTOMER_STORAGE, $customerStorageClientMock);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return void
-     */
     protected function setCustomerClientMock(CustomerTransfer $customerTransfer): void
     {
         $customerClientMock = $this->getMockBuilder(CustomerValidationPageToCustomerClientInterface::class)->getMock();
@@ -215,9 +180,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandlerPluginTest extends Un
         $this->tester->setDependency(CustomerValidationPageDependencyProvider::CLIENT_CUSTOMER, $customerClientMock);
     }
 
-    /**
-     * @return void
-     */
     protected function setRouterServiceMock(): void
     {
         $routerServiceMock = $this->getMockBuilder(ChainRouterInterface::class)->getMock();

@@ -46,12 +46,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandler implements LogoutInv
      */
     protected ChainRouterInterface $chainRouter;
 
-    /**
-     * @param \SprykerShop\Yves\CustomerValidationPage\Validator\CustomerValidationPageValidatorInterface $customerValidationPageValidator
-     * @param \SprykerShop\Yves\CustomerValidationPage\Dependency\Client\CustomerValidationPageToCustomerStorageClientInterface $customerStorageClient
-     * @param \SprykerShop\Yves\CustomerValidationPage\Dependency\Client\CustomerValidationPageToCustomerClientInterface $customerClient
-     * @param \Symfony\Cmf\Component\Routing\ChainRouterInterface $chainRouter
-     */
     public function __construct(
         CustomerValidationPageValidatorInterface $customerValidationPageValidator,
         CustomerValidationPageToCustomerStorageClientInterface $customerStorageClient,
@@ -64,11 +58,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandler implements LogoutInv
         $this->chainRouter = $chainRouter;
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\Event\ControllerEvent $controllerEvent
-     *
-     * @return void
-     */
     public function handle(ControllerEvent $controllerEvent): void
     {
         $logoutUrl = $this->chainRouter->generate(static::ROUTE_NAME_LOGOUT);
@@ -99,11 +88,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandler implements LogoutInv
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\InvalidatedCustomerCriteriaTransfer
-     */
     protected function createInvalidatedCustomerCriteriaTransfer(
         CustomerTransfer $customerTransfer
     ): InvalidatedCustomerCriteriaTransfer {
@@ -114,12 +98,6 @@ class LogoutInvalidatedCustomerFilterControllerEventHandler implements LogoutInv
             ->setInvalidatedCustomerConditions($invalidatedCustomerConditionsTransfer);
     }
 
-    /**
-     * @param \Symfony\Component\HttpKernel\Event\ControllerEvent $controllerEvent
-     * @param string $logoutUrl
-     *
-     * @return void
-     */
     protected function logout(ControllerEvent $controllerEvent, string $logoutUrl): void
     {
         $controllerEvent->setController(function () use ($logoutUrl): RedirectResponse {

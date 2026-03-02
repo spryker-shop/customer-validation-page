@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\InvalidatedCustomerCriteriaTransfer;
 
 interface CustomerValidationPageToCustomerStorageClientInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\InvalidatedCustomerCriteriaTransfer $invalidatedCustomerCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\InvalidatedCustomerCollectionTransfer
-     */
     public function getInvalidatedCustomerCollection(
         InvalidatedCustomerCriteriaTransfer $invalidatedCustomerCriteriaTransfer
     ): InvalidatedCustomerCollectionTransfer;

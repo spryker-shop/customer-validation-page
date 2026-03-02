@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\InvalidatedCustomerTransfer;
 
 interface CustomerValidationPageValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\InvalidatedCustomerTransfer $invalidatedCustomerTransfer
-     *
-     * @return bool
-     */
     public function isCustomerValid(InvalidatedCustomerTransfer $invalidatedCustomerTransfer): bool;
 }

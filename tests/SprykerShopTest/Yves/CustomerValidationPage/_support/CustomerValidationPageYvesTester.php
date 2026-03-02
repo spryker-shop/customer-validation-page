@@ -43,21 +43,12 @@ class CustomerValidationPageYvesTester extends Actor
      */
     protected const CUSTOMER_REFERENCE = 'TEST--1';
 
-    /**
-     * @return \Generated\Shared\Transfer\CustomerTransfer
-     */
     public function getCustomerTransfer(): CustomerTransfer
     {
         return (new CustomerTransfer())
             ->setCustomerReference(static::CUSTOMER_REFERENCE);
     }
 
-    /**
-     * @param \DateTime|null $anonymizedAt
-     * @param \DateTime|null $passwordUpdatedAt
-     *
-     * @return \Generated\Shared\Transfer\InvalidatedCustomerCollectionTransfer
-     */
     public function getInvalidatedCustomerCollectionTransfer(
         ?DateTime $anonymizedAt,
         ?DateTime $passwordUpdatedAt
@@ -81,9 +72,6 @@ class CustomerValidationPageYvesTester extends Actor
             ->addInvalidatedCustomer($invalidatedCustomerTransfer);
     }
 
-    /**
-     * @return \SprykerShop\Yves\CustomerValidationPage\Plugin\ShopApplication\LogoutInvalidatedCustomerFilterControllerEventHandlerPlugin
-     */
     public function createLogoutInvalidatedCustomerFilterControllerEventHandlerPlugin(): LogoutInvalidatedCustomerFilterControllerEventHandlerPlugin
     {
         return new LogoutInvalidatedCustomerFilterControllerEventHandlerPlugin();
@@ -100,11 +88,6 @@ class CustomerValidationPageYvesTester extends Actor
         ];
     }
 
-    /**
-     * @param callable $controller
-     *
-     * @return \Symfony\Component\HttpKernel\Event\ControllerEvent
-     */
     public function createControllerEvent(callable $controller): ControllerEvent
     {
         $controllerEvent = new ControllerEvent(
@@ -117,9 +100,6 @@ class CustomerValidationPageYvesTester extends Actor
         return $controllerEvent;
     }
 
-    /**
-     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-     */
     protected function getHttpKernelMock(): HttpKernelInterface
     {
         /** @var \Symfony\Component\HttpKernel\HttpKernelInterface $httpKernelMock */

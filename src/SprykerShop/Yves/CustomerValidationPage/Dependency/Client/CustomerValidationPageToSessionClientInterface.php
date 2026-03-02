@@ -11,8 +11,5 @@ use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 
 interface CustomerValidationPageToSessionClientInterface
 {
-    /**
-     * @return \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag
-     */
     public function getMetadataBag(): MetadataBag;
 }

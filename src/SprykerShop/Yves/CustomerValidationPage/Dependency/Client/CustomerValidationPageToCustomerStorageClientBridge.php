@@ -25,11 +25,6 @@ class CustomerValidationPageToCustomerStorageClientBridge implements CustomerVal
         $this->customerStorageClient = $customerStorageClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\InvalidatedCustomerCriteriaTransfer $invalidatedCustomerCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\InvalidatedCustomerCollectionTransfer
-     */
     public function getInvalidatedCustomerCollection(
         InvalidatedCustomerCriteriaTransfer $invalidatedCustomerCriteriaTransfer
     ): InvalidatedCustomerCollectionTransfer {

@@ -9,9 +9,6 @@ namespace SprykerShopTest\Yves\CustomerValidationPage;
 
 class MockController
 {
-    /**
-     * @return void
-     */
     public function mockAction(): void
     {
     }

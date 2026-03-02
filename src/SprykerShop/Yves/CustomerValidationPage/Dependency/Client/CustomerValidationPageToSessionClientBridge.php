@@ -24,9 +24,6 @@ class CustomerValidationPageToSessionClientBridge implements CustomerValidationP
         $this->sessionClient = $sessionClient;
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag
-     */
     public function getMetadataBag(): MetadataBag
     {
         return $this->sessionClient->getMetadataBag();
